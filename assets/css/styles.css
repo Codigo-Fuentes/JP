@@ -1,0 +1,495 @@
+@import url(https://fonts.googleapis.com/css?family=Work+Sans:700);
+@import url(https://fonts.googleapis.com/css?family=Expletus+Sans:700);
+
+:root {
+
+  --background: white;
+  --backgroundImage: url('../img/default0.jpg');
+  --backgroundImageOpacity: .1;
+  --backgroundBlendMode: multiply;
+  --logoFill: none;
+  --logoOpacity: 0;
+  --logoBackFill: rgb(253, 192, 45);
+  --logoFrontFill: rgb(253, 192, 45);
+  --logoTransition: '1s linear';
+  --logoDisplay: 'none'
+  --taglineColor: rgb(253, 192, 45);
+  --taglineOpacity: 1;
+  --taglineShadow: none;
+  --themeButtonsDisplay: 'flex';
+  --themeButtonsOpacity: 1;
+  --ornamentalVisibility: hidden;
+  --buttonBackground: hsl(0, 0%, 60%);
+  --buttonText: black;
+  --headerBorder: 4px solid rgb(14, 35, 228);
+  --categories: white;
+  /* --categoriesShadow: 1px 1px darkgrey; */
+  --cardBorders: black;
+  --cardBackgroundFront: rgb(14, 35, 228);
+
+  --cardBackgroundBack: rgb(14, 35, 228);
+  --cardBackgroundOpacity: .7;
+  --cardFrontHover: rgba(4, 15, 141, .7);
+  --cardFrontText: rgb(253, 192, 45);
+  --frontTextShadow: none;
+  --backTextShadow: none;
+  --cardBackText: white;
+  --cardBackLogo: white;
+  --cardFlippedBackground: hsl(180, 100%, 50%);
+  --cardCompleteLogo: black;
+
+  --startButtonOpacity: 0;
+  --startButtonVisibility: hidden;
+  --sexyPurple: rgb(255, 192, 236);
+  --jeopardyHeader: 4px solid var(--jeopardyBlue);
+  --jeopardyYellow: rgb(253, 192, 45);
+  --jeopardyBlue: rgb(14, 35, 228);
+  --testBlue: rgb(0, 0, 243);
+  --qbCardColor: hsla(0, 0%, 6%, .1);
+  --orange1: hsl(22, 100%, 39%);
+  --orange2: hsl(22, 100%, 59%);
+  --hydeTeal: #003d3d;
+  --blueILike: #7CB9FF;
+  --salmonILike: rgb(255, 128, 128);
+  --darkILike: #0f0f0f;
+  --qbYellow: #f4d90e;
+  --sexyRed: rgb(116, 0, 0);
+}
+
+html { 
+    background-color: var(--background);
+    background-image: var(--backgroundImage);
+    min-height: 100%;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-position: center;
+    background-size: cover;
+    background-blend-mode: var(--backgroundBlendMode);    
+  }
+
+  svg {
+    margin: 0;
+    padding: 0;
+  }
+
+
+body {
+    padding: 0;
+    margin: 0;
+    font-family: 'Work Sans', sans-serif;
+    overflow: scroll;
+    height: 100%;
+}
+
+p {
+    margin: 0;
+}
+
+button {
+  height: 60px;
+  width: 240px;
+  color: white;
+  border: 2px solid rgb(180, 180, 180);
+  background-color: rgb(83, 83, 83);
+  font-size: 20px;
+  display: flex;
+}
+
+button.theme {
+  display: var(--themeButtonsDisplay);
+  border-radius: 10px;
+  align-content: center;
+  justify-content: space-evenly;
+  margin-right: 5px;
+}
+
+#theme-text {
+  text-align: center;
+  top: 30%;
+  font-size: 32px;
+  color: hsl(0, 0%, 93%);
+  display: var(--themeButtonsDisplay);
+  font-family: 'Expletus Sans', cursive;
+}
+
+button:focus {
+  outline:0;
+}
+
+button.qb:hover {
+  background-color: rgb(27, 27, 27);
+  color: white;
+}
+
+button:hover #blvd {
+  color: #f4d90e;
+}
+
+button.hyde:hover {
+  background-color: black;
+  color: #0ff;
+  text-shadow: 0 0 10px red, 0 0 20px red, 0 0 30px hsl(22, 100%, 39%), 0 0 40px hsl(22, 100%, 39%), 0 0 50px hsl(22, 100%, 39%), 0 0 60px hsl(22, 100%, 39%), 0 0 70px hsl(22, 100%, 39%);
+}
+
+button.classic:hover {
+  background-color: var(--jeopardyBlue);
+  color: var(--jeopardyYellow);
+}
+
+button.sexy:hover {
+  background-color: rgb(212, 0, 0);
+  color: white;
+  text-shadow: 2px 2px black;
+}
+
+button.start {
+  margin: 0 auto;
+  visibility: var(--startButtonVisibility) !important;
+  opacity: var(--startButtonOpacity) !important;
+  margin-top: 17px;
+  border-radius: 10px;
+  background-color: black;
+}
+
+button.start:hover {
+  background-color: rgb(36, 36, 36);
+}
+
+
+#startButton {
+  transition: opacity 1s linear;
+  justify-content: center;
+}
+
+.headers {
+    position: absolute;
+    color: var(--categories);
+    text-transform: uppercase;
+    font-size: 28px;
+    padding-top: 16px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-align-items: center;
+    align-items: center;
+    height: 60px;
+    font-family: 'Work Sans', sans-serif;
+    text-shadow: var(--categoriesShadow);
+}
+
+.headers>.header {
+    display: inline-block;
+    text-align: center;
+}
+
+.flipper {
+    -webkit-perspective: 1200px;
+    perspective: 1200px;
+    position: absolute;
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    overflow: visible;
+}
+
+.flipping {
+    transition: all 1s ease-in-out;
+    z-index: 100;
+}
+
+
+.flipper.flipped {
+    -webkit-transform: translate3d(0, 0, 0) !important; /* upper left corner overriding absolute positioning */
+    transform: translate3d(0, 0, 0) !important;
+    width: 100% !important; /* full screen overriding absolute width */
+    height: 100% !important;  /* full screen overriding absolute height */
+    z-index: 100;
+}
+
+.flipper.flipped .card {
+    -webkit-transform: rotateY(-180deg);
+    transform: rotateY(-180deg);
+}
+
+.card {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-transform-style: preserve-3d;
+    transform-style: preserve-3d;
+    transition: all 1s ease-in-out;
+    position: relative;
+    width: 100%;
+    height: 100%;
+    text-align: center;
+}
+
+.card > .front,
+.card > .back {
+    -webkit-transform: translate3d(0, 0, 0);
+    transform: translate3d(0, 0, 0);
+    -webkit-backface-visibility: hidden;
+    backface-visibility: hidden;
+    position: absolute;
+    top: 4px;
+    left: 4px;
+    bottom: 4px;
+    right: 4px;
+    display: -webkit-flex;
+    display: flex;
+    -webkit-flex-direction: column;
+    flex-direction: column;
+    -webkit-justify-content: center;
+    justify-content: center;
+    -webkit-align-items: center;
+    align-items: center;
+    overflow: hidden;
+    background-size: 100% 100%;
+    background-repeat: no-repeat;
+    border: solid 1px var(--cardBorders);
+    border-radius: 4px;
+}
+
+.card > .front {
+    -webkit-transform: rotateY(0deg) !important;
+    transform: rotateY(0deg) !important;
+    background-color: var(--cardBackgroundFront);
+    color: var(--cardFrontText);
+    font-size: 74px;
+    text-shadow: var(--frontTextShadow) !important;
+    z-index: 2;
+}
+
+.card > .front:hover {
+  background-color: var(--cardFrontHover);
+}
+
+.card > .back {
+    -webkit-transform: rotateY(180deg) !important;
+    transform: rotateY(180deg) !important;
+    background-color: var(--cardBackgroundBack);
+    text-shadow: var(--backTextShadow);
+    color: var(--cardBackText);
+    font-size: 46px !important;
+    font-weight: 300;
+    padding: 0 50px;
+}
+
+.flipper.done .front > .points {
+    display: none;
+}
+
+
+.flipper.flipped .back {
+    font-size: 60px;
+}
+
+.front>svg {
+    width: 160px;
+    fill: var(--logoFrontFill);
+}
+
+.back img {
+    max-width: 80%;
+    max-height: 80%;
+}
+
+.back>svg {
+    position: absolute;
+    bottom: 20px;
+    right: 20px;
+    width: 160px;
+    fill: var(--logoBackFill);
+}
+
+ul, ol {
+    text-align: left;
+    display: inline-block;
+}
+
+li {
+    margin-top: 8px;
+}
+
+
+ol {
+    list-style-type: upper-alpha;
+}
+
+code {
+    margin-top: 28px;
+    display: inline-block;
+    font-size: 38px;
+    overflow: auto;
+    text-align: left;
+    font-family: 'Source Code Pro', monospace;
+    text-align: left;
+}
+
+@media screen and (min-width : 2000px) {
+  .logo.zero {
+    height: 250px !important;
+    margin-top: 400px !important;
+  }
+
+  .tagLine {
+      font-size: 42px !important;
+  }
+
+  button {
+    height: 75px !important;
+    width: 400px !important;
+    font-size: 28px;
+}
+
+button.theme {
+    margin-right: 10px;
+}
+
+#theme-text {
+    font-size: 64px;
+}
+
+button.start {
+    margin-top: 20px;
+}
+
+}
+
+@media screen and (min-width : 641px) and (max-width : 1024px) {
+
+    .headers {
+        font-size: 20px;
+    }
+
+    .card > .front {
+        font-size: 36px;
+    }
+
+    .card > .back {
+        font-size: 15px;
+        padding: 0 25px;
+    }
+
+    .flipper.flipped .back {
+        font-size: 36px;
+    }
+
+    .card > .front img {
+        width: 60px;
+    }
+
+    .card > .back > img {
+        width: 48px;
+    }
+
+    code {
+        margin-top: 24px;
+        font-size: 24px;
+    }
+
+    .card > .front,
+    .card > .back {
+        top: 3px;
+        left: 3px;
+        bottom: 3px;
+        right: 3px;
+    }
+}
+
+@media screen and (min-width : 0) and (max-width : 640px) {
+
+    .headers {
+        font-size: 14px;
+        height: 32px;
+    }
+
+    .card > .front {
+        font-size: 24px;
+    }
+
+    .card > .back {
+        font-size: 14px;
+        padding: 0 14px;
+    }
+
+    .flipper.flipped .back {
+        font-size: 20px;
+    }
+
+    .card > .front img {
+        width: 30px;
+    }
+
+    .card > .back > img {
+        width: 30px;
+    }
+
+    .card > .front,
+    .card > .back {
+        top: 2px;
+        left: 2px;
+        bottom: 2px;
+        right: 2px;
+        border: solid 2px var(--light)
+    }
+
+    code {
+        font-size: 14px;
+    }
+
+}
+
+.logo {
+  display: var(--logoDisplay);
+  fill: var(--logoFill);
+  opacity: var(--logoOpacity);
+  transition: var(--logoTransition);
+}
+
+.logo.zero {
+  margin: 0 auto;
+  display: var(--logoDisplay);
+  height: 150px;
+  padding-top: 200px;
+  justify-content: center;
+  align-items: center;
+}
+
+.tagLine {
+  font-family: 'Work Sans', sans-serif;
+  color: var(--taglineColor);
+  margin-top: -9px;
+  text-shadow: var(--taglineShadow);
+  font-size: 18px;
+  opacity: var(--taglineOpacity);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+}
+
+.tagLine.preGame {
+  font-size: 26px;
+  display: flex;
+  text-align: center;
+  position: relative;
+}
+
+.tagLine.postGame {
+  text-align: center;
+}
+
+#game-header {
+  border-bottom: var(--headerBorder);
+  height: 137px;
+}
+
+.fixer-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.button-container{
+display: flex;
+justify-content: center;
+align-items: center;
+}
